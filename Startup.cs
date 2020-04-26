@@ -37,23 +37,27 @@ namespace EmployeeManagement
 
             app.UseRouting();
 
-            FileServerOptions fileServerOptions = new FileServerOptions();
-            fileServerOptions.DefaultFilesOptions.DefaultFileNames.Clear();
-            fileServerOptions.DefaultFilesOptions.DefaultFileNames.Add("foo.html");
+            //FileServerOptions fileServerOptions = new FileServerOptions();
+            //fileServerOptions.DefaultFilesOptions.DefaultFileNames.Clear();
+            //fileServerOptions.DefaultFilesOptions.DefaultFileNames.Add("foo.html");
 
 
 
 
-            app.UseFileServer(fileServerOptions);
-            app.UseStaticFiles();
+            app.UseFileServer();
+            //app.UseStaticFiles();
 
-            app.Use(async (context, next) =>
+            //app.Use(async (context, next) =>
+            //{
+            //    await context.Response.WriteAsync("Hello World!" );
+
+            //});
+
+            app.Run(async (context) =>
             {
-                await context.Response.WriteAsync("Hello World!" );
-             
+                throw new Exception("Some error Processing the Request");
+                await context.Response.WriteAsync("Hello World!");
             });
-
-
 
 
 
