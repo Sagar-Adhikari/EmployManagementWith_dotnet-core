@@ -44,8 +44,8 @@ namespace EmployeeManagement
 
 
 
-            app.UseFileServer();
-            //app.UseStaticFiles();
+            //app.UseFileServer();
+            app.UseStaticFiles();
 
             //app.Use(async (context, next) =>
             //{
@@ -55,8 +55,8 @@ namespace EmployeeManagement
 
             app.Run(async (context) =>
             {
-                throw new Exception("Some error Processing the Request");
-                await context.Response.WriteAsync("Hello World!");
+                //throw new Exception("Some error Processing the Request");
+                await context.Response.WriteAsync("Hosting Environment" + env.EnvironmentName);
             });
 
 
